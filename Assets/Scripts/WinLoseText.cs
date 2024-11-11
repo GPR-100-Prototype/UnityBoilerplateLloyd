@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using TMPro;
 
-public class ScoreManager : MonoBehaviour
+public class WinLoseText : MonoBehaviour
 {
     public TextMeshProUGUI text;
     public int currentScore = 0;
     void Update()
     {
+        FindObjectOfType<ProgressBar>().progress = this.currentScore;
         text.text = this.currentScore.ToString();
-        //test
-        FindObjectOfType<ScoreManager>().currentScore = this.currentScore;
     }
 }
