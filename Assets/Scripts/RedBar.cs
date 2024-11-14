@@ -7,7 +7,7 @@ public class RedBar : MonoBehaviour
     public RectTransform Red;
     public float deathProgress = 0;
     public float deathProgressScale = 0;
-    public int speedValue = 1;
+    public int speedValue = 3;
 
     void Start()
     {

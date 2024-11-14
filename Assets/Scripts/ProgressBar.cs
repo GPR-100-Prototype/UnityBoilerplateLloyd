@@ -8,22 +8,25 @@ public class ProgressBar : MonoBehaviour
 {
     public RectTransform Progress;
     public float progress = 0;
+    public float progressScale = 0;
+    public int speedValue = 1;
     private bool complete = false;
 
     void Start()
     {
         progress = 0;
-        Progress.localScale = new Vector3(1, progress, 1);
+        Progress.localScale = new Vector3(1, progressScale, 1);
     }
     void Update()
     {
         if (Input.GetMouseButton(0) && !complete)
         {
             progress += Time.deltaTime;
-            Progress.localScale = new Vector3(1, progress/10, 1);
+            progressScale = progress / speedValue;
+            Progress.localScale = new Vector3(1, progressScale, 1);
         }
 
-        if (progress >= 10.0)
+        if (progressScale >= 1.0)
         {
             complete = true;
         }
