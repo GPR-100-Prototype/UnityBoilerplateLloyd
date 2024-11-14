@@ -9,7 +9,7 @@ public class ProgressBar : MonoBehaviour
     public RectTransform Progress;
     public float progress = 0;
     public float progressScale = 0;
-    public int speedValue = 1;
+    public int speedValue = 2;
     private bool complete = false;
 
     void Start()
