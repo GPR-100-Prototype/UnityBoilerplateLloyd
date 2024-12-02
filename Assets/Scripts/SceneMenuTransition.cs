@@ -7,7 +7,7 @@ public class SceneMenuTransition : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("2DPlatformer_Game");
+        SceneManager.LoadScene("FishingMinigame");
     }
 
     public void Quit()
