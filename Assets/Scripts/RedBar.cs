@@ -7,15 +7,18 @@ public class RedBar : MonoBehaviour
     public RectTransform Red;
     public float deathProgress = 0;
     public float deathProgressScale = 0;
-    public int speedValue = 3;
-
-    void Start()
+    public int speedValue = 5;
+    private bool allowedProgress = false;
+    
+    IEnumerator Start()
     {
         deathProgress = 0;
+        yield return new WaitForSeconds(2);
+        allowedProgress = true;
     }
     void Update()
     {
-        if (deathProgress <= 10.0)
+        if (deathProgressScale <= 1 && allowedProgress)
         {
             deathProgress += Time.deltaTime;
             deathProgressScale = deathProgress / speedValue;

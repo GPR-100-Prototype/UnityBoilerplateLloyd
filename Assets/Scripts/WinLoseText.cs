@@ -9,7 +9,7 @@ public class WinLoseText : MonoBehaviour
     public int currentScore = 0;
     void Update()
     {
-        FindObjectOfType<ProgressBar>().progress = this.currentScore;
+        this.currentScore = (int)(FindObjectOfType<ProgressBar>().progressScale * 100);
         text.text = this.currentScore.ToString();
     }
 }
