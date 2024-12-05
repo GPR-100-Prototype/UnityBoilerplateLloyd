@@ -8,7 +8,7 @@ public class RedBar : MonoBehaviour
     public float deathProgress = 0;
     public float deathProgressScale = 0;
     public int speedValue = 5;
-    private bool allowedProgress = false;
+    public bool allowedProgress = false;
     
     IEnumerator Start()
     {
@@ -23,6 +23,11 @@ public class RedBar : MonoBehaviour
             deathProgress += Time.deltaTime;
             deathProgressScale = deathProgress / speedValue;
             Red.localScale = new Vector3(1, deathProgressScale, 1);
+        }
+
+        if (FindObjectOfType<WinLoseText>().stopRed == true)
+        {
+            allowedProgress = false;
         }
     }
 }

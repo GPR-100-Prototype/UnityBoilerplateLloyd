@@ -11,6 +11,7 @@ public class ProgressBar : MonoBehaviour
     public float progressScale = 0;
     public int speedValue = 2;
     private bool complete = false;
+    private bool allowedProgress = true;
 
     void Start()
     {
@@ -19,7 +20,7 @@ public class ProgressBar : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButton(0) && !complete)
+        if (Input.GetMouseButton(0) && !complete && allowedProgress)
         {
             progress += Time.deltaTime;
             progressScale = progress / speedValue;
@@ -29,6 +30,11 @@ public class ProgressBar : MonoBehaviour
         if (progressScale >= 1.0)
         {
             complete = true;
+        }
+        
+        if (FindObjectOfType<WinLoseText>().stopGreen == true)
+        {
+            allowedProgress = false;
         }
     }
 }
